@@ -4,36 +4,47 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Basae */
 .sans {
   @apply bg-slate-50 text-slate-800 min-h-screen font-nunito tracking-wide;
 }
 
+/* 
+  * Utilities 
+  */
 .heading {
   @apply flex flex-col items-center tracking-wide;
 }
 
 .heading .main {
-  @apply font-extrabold text-2xl;
+  @apply font-extrabold text-2xl
+  
+  lg:text-3xl;
 }
 
 .heading .description {
-  @apply text-slate-400;
+  @apply text-slate-500;
 }
 
 .btn {
   @apply bg-gradient-to-br from-cyan-600 to-cyan-500 text-slate-50 px-8 py-3 text-sm font-bold rounded-2xl tracking-wide;
 }
 
+/* 
+  * Header 
+  */
 .header {
-  @apply container mx-auto px-6 shadow-sm;
+  @apply shadow-sm sticky inset-0 z-20 bg-slate-50 bg-opacity-95;
 }
 
 .navbar {
-  @apply flex items-center justify-between;
+  @apply container mx-auto flex items-center justify-between px-6;
 }
 
 .navbar .logo .logo-image {
-  @apply w-16 h-16;
+  @apply w-16 h-16
+  
+  sm:w-20 sm:h-20;
 }
 
 .navbar .menu {
@@ -41,11 +52,20 @@
 }
 
 .navbar .menu .item .link .icon {
-  @apply w-5 h-5;
+  @apply w-5 h-5  
+  
+  sm:w-6 sm:h-6;
 }
 
+/* 
+  * Hero 
+  */
 .hero {
-  @apply h-96 relative flex items-center justify-center;
+  @apply h-96 relative flex items-center justify-center
+  
+  sm:h-[28rem]
+  
+  lg:h-screen;
 }
 
 .hero .text {
@@ -53,38 +73,68 @@
 }
 
 .hero .text .location {
-  @apply text-xs;
+  @apply text-xs bg-slate-800 bg-opacity-25 px-4 py-1 rounded-2xl
+  
+  md:text-sm
+
+  lg:text-base lg:-mt-24;
 }
 
 .hero .text .tagline {
-  @apply pt-3 pb-6 text-3xl w-11/12 text-center font-extrabold tracking-wider;
+  @apply pt-3 pb-6 text-3xl w-11/12 text-center font-extrabold tracking-wider
+  
+  sm:text-4xl sm:w-8/12
+  
+  lg:text-5xl;
 }
 
 .hero .image {
-  @apply absolute inset-0 z-0;
+  @apply absolute h-full w-full inset-0 z-0;
+}
+
+.hero .image .overlay {
+  @apply absolute inset-0 w-full h-full;
+  background: linear-gradient(
+    180deg,
+    rgba(30, 41, 59, 0.5) 0%,
+    rgba(30, 41, 59, 0.35) 25%,
+    rgba(30, 41, 59, 0.25) 50%,
+    rgba(248, 250, 252, 1) 100%
+  );
 }
 
 .hero .image .photo {
   @apply h-full w-full object-cover;
 }
 
+/* 
+  * Tours 
+  */
 .tours {
-  @apply py-16 flex flex-col items-center justify-center;
+  @apply pt-32 pb-16 flex flex-col items-center justify-center;
 }
 
 .tours .cards {
-  @apply container mx-auto px-6 py-8 space-y-12;
+  @apply container mx-auto px-6 py-8 space-y-12 
+  sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-8 sm:gap-y-12 sm:px-8
+
+  lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:gap-y-12 lg:px-8;
 }
 
 .tours .cards .item {
   @apply relative;
 }
+
 .tours .cards .item .cta {
   @apply absolute inset-0 w-full h-full;
 }
 
 .tours .cards .item .image {
   @apply relative;
+}
+
+.tours .cards .item .image .photo {
+  @apply rounded-2xl;
 }
 
 .tours .cards .item .tag {
@@ -139,12 +189,21 @@
   @apply text-sm text-slate-500;
 }
 
+/* 
+  * Benefit 
+  */
 .benefit {
-  @apply py-16 container mx-auto px-6;
+  @apply py-16 container mx-auto px-6
+
+  sm:px-8;
 }
 
 .benefit .list {
-  @apply grid grid-cols-2 gap-x-2 gap-y-8 py-8;
+  @apply grid grid-cols-2 gap-x-2 gap-y-8 py-8
+  
+  sm:gap-x-8
+  
+  lg:grid-cols-4;
 }
 
 .benefit .list .item {
@@ -156,19 +215,29 @@
 }
 
 .benefit .list .item .text .head {
-  @apply text-center font-semibold;
+  @apply text-center font-semibold pb-2
+  
+  sm:font-bold;
 }
 
+/* 
+  * Testimony 
+  */
 .testimony {
   @apply container mx-auto py-16 flex flex-col items-center;
 }
 
 .testimony .cards {
-  @apply px-6 py-8 space-y-8;
+  @apply px-6 py-8 space-y-8
+
+  sm:px-8 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-8
+  
+  lg:grid-cols-3;
 }
 
 .testimony .cards .item {
-  @apply relative border border-slate-200 p-6 h-72 rounded-3xl;
+  @apply relative border border-slate-200 p-6 h-72 rounded-3xl
+  sm:h-80;
 }
 
 .testimony .cards .item .top {
@@ -215,28 +284,64 @@
   @apply w-6 h-6;
 }
 
+/* 
+  * Social Media 
+  */
+.social-media {
+  @apply py-16 flex flex-col items-center;
+}
+
+.social-media .photos {
+  @apply container mx-auto grid grid-cols-2 gap-x-3 gap-y-4 px-6 pt-8 pb-10
+  
+  sm:px-8 sm:gap-x-6 sm:gap-y-8
+  
+  md:grid-cols-3;
+}
+
+.social-media .photos .image {
+  @apply w-full h-full;
+}
+
+.social-media .photos .image img {
+  @apply w-full h-full object-cover rounded-2xl;
+}
+
+/* 
+  * Footer 
+  */
 .footer {
   @apply pt-16 container mx-auto px-6 flex flex-col items-center;
 }
 
 .footer .logo .icons {
-  @apply h-16;
+  @apply h-16 w-auto
+  
+  sm:h-20;
 }
 
 .footer .brand {
-  @apply pt-2 pb-4 text-lg font-extrabold;
+  @apply pt-2 pb-4 text-lg font-extrabold
+  
+  sm:text-xl;
 }
 
 .footer .menu {
-  @apply flex items-center space-x-6 text-sm text-slate-800;
+  @apply flex items-center space-x-6 text-sm text-slate-800
+  
+  sm:text-base sm:space-x-12;
 }
 
 .footer .social {
-  @apply pt-6 pb-8 flex items-center space-x-3;
+  @apply pt-6 pb-8 flex items-center space-x-3
+  
+  sm:space-x-6;
 }
 
 .footer .social .item .link .icon {
-  @apply w-5 h-5 text-slate-700;
+  @apply w-5 h-5
+  
+  sm:w-6 sm:h-6;
 }
 
 .footer .copyright {
