@@ -1,0 +1,68 @@
+---
+import Heading from "../../components/Heading.astro";
+import Button from "../../components/Button.astro";
+
+export const photos = [
+  {
+    srcImage: "./assets/images/feed-1.jpg",
+    altImage: "feed-1",
+  },
+  {
+    srcImage: "./assets/images/feed-2.jpg",
+    altImage: "feed-2",
+  },
+  {
+    srcImage: "./assets/images/feed-3.jpg",
+    altImage: "feed-3",
+  },
+  {
+    srcImage: "./assets/images/feed-4.jpg",
+    altImage: "feed-4",
+  }
+]
+---
+<section class="social-media">
+
+  <Heading main="Sosial Media" desc="Kunjungi sosial media kami" />
+
+  <div class="photos">
+    {photos.map(photo => (
+      <div class="image">
+        <img src={photo.srcImage} alt={photo.altImage} />
+      </div>
+    ))}
+  </div>
+
+  <div class="cta">
+    <a href="https://www.instagram.com/sanstourtravel/">
+      <Button btnType="noIcon" className="btn-socmed" btnText="Follow @sanstourtravel" />
+    </a>
+  </div>
+</section>
+
+<style>
+.social-media {
+  @apply py-16 flex flex-col items-center px-6
+  sm:px-8
+  md:px-10
+  lg:px-12
+  xl:px-16
+  2xl:px-24;
+}
+
+.social-media .photos {
+  @apply grid grid-cols-2 gap-x-3 gap-y-4 pt-8 pb-10
+  
+  sm:gap-x-6 sm:gap-y-8
+  
+  lg:grid-cols-4;
+}
+
+.social-media .photos .image {
+  @apply w-full h-full;
+}
+
+.social-media .photos .image img {
+  @apply w-full h-full object-cover rounded-2xl;
+}
+</style>

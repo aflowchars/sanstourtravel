@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+import Previews from '../parts/detail/Previews.astro';
+import Basic from '../parts/detail/Basic.astro';
+import Feature from '../parts/detail/Feature.astro';
+import TourGuide from '../parts/detail/TourGuide.astro';
+import Itinerary from '../parts/detail/Itinerary.astro';
+import Terms from '../parts/detail/Terms.astro';
+import Booking from '../parts/detail/Booking.astro';
+---
+<Layout title="Sans Tour & Travel">
+	<Previews />
+
+	<div class="dt-wrapper">
+		<div class="dt-left">
+			<Basic />
+
+			<TourGuide />
+			
+			<Itinerary />
+
+			<Feature />
+
+			<Terms />
+		</div>
+
+		<div class="dt-book-now">
+			<Booking />
+		</div>
+
+	</div>
+</Layout>
+
+
+<style>
+.divider .line {
+  @apply w-full h-[0.5px] bg-slate-200;
+}
+
+.dt-wrapper {
+  @apply grid grid-cols-1 relative h-full px-6
+	sm:px-8
+	md:px-10
+	lg:px-12
+	xl:px-16
+	2xl:px-20
+  md:grid-cols-12 md:gap-x-10;
+}
+
+.dt-wrapper .dt-left {
+  @apply col-span-1 md:col-span-8 relative;
+}
+
+.dt-wrapper .dt-book-now {
+  @apply col-span-1 sticky bottom-0 left-0 py-4 bg-slate-50
+  
+  md:h-[28rem] md:col-span-4 md:px-0 md:sticky md:top-24 z-0;
+}
+</style>

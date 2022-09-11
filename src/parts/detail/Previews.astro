@@ -1,0 +1,123 @@
+<script type="module" src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+<script type="module" src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<script>
+  // breakpoint where swiper will be destroyed
+  // and switches to a dual-column layout
+  const breakpoint = window.matchMedia("(min-width:768px)");
+  // keep track of swiper instances to destroy later
+  let mySwiper;
+
+  const breakpointChecker = function () {
+    // if larger viewport and multi-row layout needed
+    if (breakpoint.matches === true) {
+      // clean up old instances and inline styles when available
+      if (mySwiper !== undefined) mySwiper.destroy(true, true);
+      mySwiper.pagination.destroy();
+      // or/and do nothing
+      return;
+      // else if a small viewport and single column layout needed
+    } else if (breakpoint.matches === false) {
+      // fire small viewport version of swiper
+      return enableSwiper();
+    }
+  };
+
+  const enableSwiper = function () {
+    mySwiper = new Swiper(".swiper", {
+      // pagination
+      pagination: {
+        el: ".swiper-pagination",
+      },
+    });
+  };
+
+  // keep an eye on viewport size changes
+  breakpoint.addEventListener("change", () => {
+    breakpointChecker();
+  });
+  // kickstart
+  breakpointChecker();
+</script>
+
+<section class="dt-photos swiper">
+  <div class="dt-images swiper-wrapper">
+    <img
+      class="swiper-slide dt-image zoom-dark"
+      src="./assets/images/feed-1.jpg"
+      alt="feed-1"
+    />
+    <img
+      class="swiper-slide dt-image zoom-dark"
+      src="./assets/images/feed-2.jpg"
+      alt="feed-2"
+    />
+    <img
+      class="swiper-slide dt-image zoom-dark"
+      src="./assets/images/feed-3.jpg"
+      alt="feed-3"
+    />
+    <img
+      class="swiper-slide dt-image zoom-dark"
+      src="./assets/images/feed-4.jpg"
+      alt="feed-4"
+    />
+  </div>
+
+  <div class="swiper-pagination md:hidden"></div>
+</section>
+
+<style>
+.swiper-slide {
+  @apply rounded-2xl;
+}
+
+.swiper-pagination-bullet-active {
+  @apply bg-white bg-opacity-100;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  @apply text-white bg-black bg-opacity-25 border-white w-6 h-6 rounded-full;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  @apply text-xxs font-bold;
+}
+
+.dt-photos {
+  @apply relative px-0 py-0
+  
+  sm:px-0
+  md:py-8 md:mx-auto
+  md:px-10
+  lg:px-12
+  xl:px-16
+  2xl:px-20;
+}
+
+.dt-photos .dt-images {
+  @apply gap-x-0 md:grid md:grid-cols-4 md:gap-x-4 md:h-[32rem];
+}
+
+.dt-photos .dt-images .dt-image {
+  @apply block rounded-none
+  
+  md:block md:w-full md:h-full md:object-cover md:rounded-xl md:row-span-6;
+}
+
+.dt-photos .dt-images .swiper {
+  @apply hidden;
+}
+
+.dt-photos .slider .icon {
+  @apply w-1.5 h-1.5;
+}
+
+.dt-photos .slider {
+  @apply absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center space-x-1
+  
+  md:hidden;
+}
+</style>

@@ -1,0 +1,29 @@
+---
+export interface Props {
+	main: string;
+	desc: string;
+}
+
+const { main, desc } = Astro.props as Props;
+---
+
+<div class="heading">
+  <h3 class="heading-main">{main}</h3>
+  <p class="heading-description">{desc}</p>
+</div>
+
+<style>
+.heading {
+  @apply mb-8 flex flex-col items-center tracking-wide;
+  
+  &-main {
+    @apply mb-2 font-black text-2xl
+    
+    lg:text-3xl;
+  }
+
+  &-description {
+    @apply text-slate-500 text-lg;
+  }
+}
+</style>

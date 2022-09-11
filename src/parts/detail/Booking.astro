@@ -1,0 +1,148 @@
+---
+import Button from "../../components/Button.astro";
+
+---
+
+<div class="wrapper">
+  <div class="text">
+    <h3 class="title">Mengunjungi Pantai Lombok</h3>
+
+    <div class="for-med">
+      <div class="item">
+        <h5 class="tag">Jadwal</h5>
+        <div class="wrapper-item">
+          <img
+            class="icon"
+            src="./assets/icons/icons-calendar.svg"
+            alt="icons-calendar"
+          />
+          <p class="text">24/06/2022</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <h5 class="tag">Waktu</h5>
+        <div class="wrapper-item">
+          <img
+            class="icon"
+            src="./assets/icons/icons-clock.svg"
+            alt="icons-clock"
+          />
+          <p class="text">08.30 WITA</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <h5 class="tag">Max Tamu</h5>
+        <div class="wrapper-item">
+          <img
+            class="icon"
+            src="./assets/icons/icons-person.svg"
+            alt="icons-calendar"
+          />
+          <p class="text">10 Orang</p>
+        </div>
+      </div>
+    </div>
+
+    <h5 class="price">
+      <span class="big">Rp. 1.500.000,- </span>
+      / orang
+    </h5>
+    <p class="day-night">4 Hari 3 Malam</p>
+  </div>
+
+  <div class="cta">
+    <Button className="btn-booking px-4" btnText="test" btnType="withIcon">
+      <span class="block">Pesan</span>
+      <span class="hidden md:block">Sekarang</span>
+      <img
+        class="icon"
+        src="./assets/icons/icons-whatsapp.svg"
+        alt="icons-whatsapp"
+      />
+    </Button>
+  </div>
+</div>
+
+<style>
+.wrapper {
+  @apply flex flex-row items-center justify-between
+  
+  md:p-6 md:flex-col md:items-start md:border md:border-slate-200 md:rounded-xl md:shadow-md
+  
+  lg:p-8;
+}
+
+.wrapper .text {
+  @apply w-full;
+}
+
+.wrapper .text .title {
+  @apply hidden md:block md:text-lg lg:text-xl mb-4 font-bold;
+}
+
+.wrapper .text .for-med {
+  @apply hidden md:grid md:grid-cols-1 md:grid-flow-row border-b border-slate-200
+  
+  lg:grid-cols-2 lg:gap-x-2;
+}
+
+.wrapper .text .for-med .item {
+  @apply mb-4;
+}
+
+.wrapper .text .for-med .item .tag {
+  @apply mb-2 text-xxs md:text-xs uppercase font-bold text-slate-600;
+}
+
+.wrapper .text .for-med .item .wrapper-item {
+  @apply mb-2 flex items-center space-x-2;
+}
+
+.wrapper .text .for-med .item .wrapper-item .icon {
+  @apply w-5 h-5 lg:w-6 lg:h-6;
+}
+
+.wrapper .text .for-med .item .wrapper-item .text {
+  @apply text-xs lg:text-base font-semibold;
+}
+
+.wrapper .text .price {
+  @apply text-sm text-slate-600
+  
+  md:text-base md:pt-4;
+}
+
+.wrapper .text .price .big {
+  @apply text-base font-bold text-slate-800 
+  
+  md:pb-4;
+}
+
+.wrapper .text .day-night {
+  @apply text-xs text-slate-600
+  
+  md:text-sm md:pb-4;
+}
+
+.wrapper .cta {
+  @apply w-auto
+  
+  md:w-full;
+}
+
+.wrapper .cta button {
+  @apply w-full flex items-center justify-center space-x-1
+  
+  md:w-full md:justify-center;
+}
+
+.wrapper .cta .btn {
+  @apply py-3 font-semibold;
+}
+
+.wrapper .cta .btn .icon {
+  @apply w-5 h-5;
+}
+</style>

@@ -1,0 +1,71 @@
+---
+import Button from "../../components/Button.astro";
+---
+<section class="hero">
+  <!-- Text -->
+  <div class="hero-text">
+    <h5 class="hero-text-location">— Gili Trawangan, Lombok Utara</h5>
+    <h1 class="hero-text-tagline">Gas Liburan, Tinggalkan Kantoran</h1>
+    <Button className="hero-text-btn" btnText="Pesan Sekarang"/>
+  </div>
+
+  <!-- Image -->
+  <div class="hero-image">
+    <div class="hero-image-overlay">&nbsp;</div>
+    <img
+      class="hero-image-photo"
+      src="/assets/images/uber-scuba-gili-bUQN08cphno-unsplash.jpg"
+      alt="image-hero"
+    />
+  </div>
+</section>
+
+<style>
+.hero {
+  @apply h-96 relative flex items-center justify-center
+  
+  sm:h-[28rem]
+  
+  lg:h-screen;
+
+  &-text {
+    @apply flex flex-col items-center text-slate-50 justify-center relative z-10;
+
+    &-location {
+      @apply text-xs bg-slate-800 bg-opacity-25 px-4 py-1 rounded-2xl
+      
+      md:text-sm
+      
+      lg:text-base lg:-mt-24;
+    }
+
+    &-tagline {
+      @apply pt-3 pb-6 text-3xl w-11/12 text-center font-black tracking-wider
+      
+      sm:text-4xl sm:w-8/12
+      
+      lg:text-5xl;
+    }
+
+  }
+
+  &-image {
+    @apply absolute h-full w-full inset-0 z-0;
+
+    &-overlay {
+      @apply absolute inset-0 w-full h-full;
+      background: linear-gradient(
+        180deg,
+        rgba(30, 41, 59, 0.5) 0%,
+        rgba(30, 41, 59, 0.35) 25%,
+        rgba(30, 41, 59, 0.25) 50%,
+        rgba(248, 250, 252, 1) 100%
+      );
+    }
+
+    &-photo {
+      @apply h-full w-full object-cover;
+    }
+  }
+}
+</style>

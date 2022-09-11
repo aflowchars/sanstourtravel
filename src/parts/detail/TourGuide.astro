@@ -1,0 +1,75 @@
+<section class="dt-tour-guide">
+  <h5 class="heading-tg">Dilayani Oleh</h5>
+  <div class="wrapper">
+    <div class="info">
+      <div class="image">
+        <img
+          class="photo"
+          src="./assets/images/tour-guide-1.jpg"
+          alt="tour-guide-1"
+        />
+      </div>
+      <div class="text">
+        <h5 class="name">Manda Friany</h5>
+        <h5 class="occupation">Tour Guide</h5>
+      </div>
+    </div>
+
+    <div class="rate">
+      <h5 class="number">5.0</h5>
+      <p class="icon">
+        <img
+          class="w-4 h-4"
+          src="./assets/icons/icons-star.svg"
+          alt="icons-star"
+        />
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  
+/* Tour Guide */
+.dt-tour-guide {
+  @apply py-6 border-b border-slate-200;
+}
+
+.dt-tour-guide .heading-tg {
+  @apply text-left font-extrabold text-xxs uppercase text-slate-600 pb-2
+  
+  sm:text-xs;
+}
+
+.dt-tour-guide .wrapper {
+  @apply flex items-center justify-between w-full;
+}
+
+.dt-tour-guide .wrapper .info {
+  @apply flex items-center space-x-2;
+}
+
+.dt-tour-guide .wrapper .info .image {
+  @apply w-12 h-12;
+}
+
+.dt-tour-guide .wrapper .info .image .photo {
+  @apply w-full h-full object-cover rounded-full;
+}
+
+.dt-tour-guide .wrapper .info .text .name {
+  @apply font-bold;
+}
+
+.dt-tour-guide .wrapper .info .text .occupation {
+  @apply text-xs font-semibold text-slate-600;
+}
+
+.dt-tour-guide .wrapper .rate {
+  @apply flex items-center space-x-1;
+}
+
+.dt-tour-guide .wrapper .rate .number {
+  @apply font-extrabold text-sm;
+}
+</style>

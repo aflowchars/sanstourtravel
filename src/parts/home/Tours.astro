@@ -1,0 +1,438 @@
+---
+import Heading from "../../components/Heading.astro";
+import Button from "../../components/Button.astro";
+
+const allTours = [
+  {
+    srcImage: [
+      './assets/images/image-tours-1.jpg',
+      './assets/images/image-tours-2.jpg',
+      './assets/images/image-tours-3.jpg',
+    ],
+    destinations: 4,
+    typeExpedition: 'Tours',
+    title: 'Mengunjungi Pantai Lombok',
+    listLocation: 'Senggigi, Selong Belanak, Pandanan',
+    price: 480000,
+    day: 3,
+    night: 4,
+  },
+  {
+    srcImage: [
+      './assets/images/image-tours-3.jpg',
+      './assets/images/image-tours-2.jpg',
+      './assets/images/image-tours-1.jpg',
+    ],
+    destinations: 4,
+    typeExpedition: 'Tours',
+    title: 'Mengunjungi Pantai Lombok',
+    listLocation: 'Senggigi, Selong Belanak, Pandanan',
+    price: 480000,
+    day: 3,
+    night: 4,
+  },
+  {
+    srcImage: [
+      './assets/images/image-tours-2.jpg',
+      './assets/images/image-tours-12.jpg',
+      './assets/images/image-tours-3.jpg',
+    ],
+    destinations: 4,
+    typeExpedition: 'Tours',
+    title: 'Mengunjungi Pantai Lombok',
+    listLocation: 'Senggigi, Selong Belanak, Pandanan',
+    price: 480000,
+    day: 3,
+    night: 4,
+  },
+  {
+    srcImage: [
+      './assets/images/image-tours-1.jpg',
+      './assets/images/image-tours-2.jpg',
+      './assets/images/image-tours-3.jpg',
+    ],
+    destinations: 4,
+    typeExpedition: 'Tours',
+    title: 'Mengunjungi Pantai Lombok',
+    listLocation: 'Senggigi, Selong Belanak, Pandanan',
+    price: 480000,
+    day: 3,
+    night: 4,
+  }
+]
+---
+
+<script type="module" src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+<script type="module" src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script type="module">
+  const swiper = new Swiper(".swiper", {
+    // If we need pagination
+    pagination: {
+      el: ".swiper-pagination",
+      dynamicBullets: true,
+    },
+
+    // Navigation arrows
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+
+    // And if we need scrollbar
+    scrollbar: {
+      el: ".swiper-scrollbar",
+    },
+  });
+
+</script>
+
+
+
+<section class="tours">
+  <Heading main="Paket Wisata" desc="Daftar perjalanan yang tersedia"/>
+
+  <div class="cards">
+    {allTours.map(item => (
+
+      <div class="item">
+        <a class="cta" href="./detail.html">&nbsp;</a>
+  
+        <div class="image swiper">
+  
+          <div class="wrapper swiper-wrapper">
+            {item.srcImage.map(image => (
+              <img
+                class="swiper-slide"
+                src={image}
+                alt="image-tours-1"
+              />
+            ))}
+          </div>
+  
+          <div class="tag">
+            <div class="location content-text">{item.destinations} Destinasi</div>
+            <div class="category content-text">{item.typeExpedition}</div>
+          </div>
+  
+          <div class="swiper-pagination"></div>
+  
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+  
+        <div class="card-text">
+          <div class="title-location">
+            <h3 class="title">{item.title}</h3>
+            <div class="location">
+              <h6 class="tag-location">Lokasi</h6>
+              <p class="list">{item.listLocation}</p>
+            </div>
+          </div>
+  
+          <div class="price-day">
+            <h5 class="price">
+              <span class="nominal"> Rp. {item.price},- </span>
+              <span class="people">/ org</span>
+            </h5>
+            <p class="day">{item.day} Hari {item.night} Malam</p>
+          </div>
+        </div>
+      </div>
+    ))}
+
+    <!-- <div class="item">
+      <a class="cta" href="./details.html">&nbsp;</a>
+
+      <div class="image swiper">
+        <div class="wrapper swiper-wrapper">
+          <img
+            class="swiper-slide"
+            src="./assets/images/image-tours-2.jpg"
+            alt="image-tours-1"
+          />
+
+          <img
+            class="swiper-slide"
+            src="./assets/images/image-tours-1.jpg"
+            alt="image-tours-1"
+          />
+
+          <img
+            class="swiper-slide"
+            src="./assets/images/image-tours-3.jpg"
+            alt="image-tours-1"
+          />
+        </div>
+
+        <div class="tag">
+          <div class="location content-text">4 Destinasi</div>
+          <div class="category content-text">Tours</div>
+        </div>
+
+        <div class="swiper-pagination"></div>
+
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+
+      <div class="card-text">
+        <div class="title-location">
+          <h3 class="title">Mengunjungi Pantai Lombok</h3>
+          <div class="location">
+            <h6 class="tag-location">Lokasi</h6>
+            <p class="list">Senggigi, Selong Belanak, Pandanan</p>
+          </div>
+        </div>
+
+        <div class="price-day">
+          <h5 class="price">
+            <span class="nominal"> Rp. 480.000,- </span>
+            <span class="people">/ org</span>
+          </h5>
+          <p class="day">3 Hari 4 Malam</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <a class="cta" href="./details.html">&nbsp;</a>
+
+      <div class="image swiper">
+        <div class="wrapper swiper-wrapper">
+          <img
+            class="swiper-slide"
+            src="./assets/images/image-tours-3.jpg"
+            alt="image-tours-1"
+          />
+
+          <img
+            class="swiper-slide"
+            src="./assets/images/image-tours-2.jpg"
+            alt="image-tours-1"
+          />
+
+          <img
+            class="swiper-slide"
+            src="./assets/images/image-tours-1.jpg"
+            alt="image-tours-1"
+          />
+        </div>
+
+        <div class="tag">
+          <div class="location content-text">4 Destinasi</div>
+          <div class="category content-text">Tours</div>
+        </div>
+
+        <div class="swiper-pagination"></div>
+
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+
+      <div class="card-text">
+        <div class="title-location">
+          <h3 class="title">Mengunjungi Pantai Lombok</h3>
+          <div class="location">
+            <h6 class="tag-location">Lokasi</h6>
+            <p class="list">Senggigi, Selong Belanak, Pandanan</p>
+          </div>
+        </div>
+
+        <div class="price-day">
+          <h5 class="price">
+            <span class="nominal"> Rp. 480.000,- </span>
+            <span class="people">/ org</span>
+          </h5>
+          <p class="day">3 Hari 4 Malam</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <a class="cta" href="./details.html">&nbsp;</a>
+
+      <div class="image swiper">
+        <div class="wrapper swiper-wrapper">
+          <img
+            class="swiper-slide"
+            src="./assets/images/image-tours-1.jpg"
+            alt="image-tours-1"
+          />
+
+          <img
+            class="swiper-slide"
+            src="./assets/images/image-tours-2.jpg"
+            alt="image-tours-1"
+          />
+
+          <img
+            class="swiper-slide"
+            src="./assets/images/image-tours-3.jpg"
+            alt="image-tours-1"
+          />
+        </div>
+
+        <div class="tag">
+          <div class="location content-text">4 Destinasi</div>
+          <div class="category content-text">Tours</div>
+        </div>
+
+        <div class="swiper-pagination"></div>
+
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+
+      <div class="card-text">
+        <div class="title-location">
+          <h3 class="title">Mengunjungi Pantai Lombok</h3>
+          <div class="location">
+            <h6 class="tag-location">Lokasi</h6>
+            <p class="list">Senggigi, Selong Belanak, Pandanan</p>
+          </div>
+        </div>
+
+        <div class="price-day">
+          <h5 class="price">
+            <span class="nominal"> Rp. 480.000,- </span>
+            <span class="people">/ org</span>
+          </h5>
+          <p class="day">3 Hari 4 Malam</p>
+        </div>
+      </div>
+    </div> -->
+  </div>
+
+  <Button btnType="noIcon" className="btn-tours" btnText="Lihat Lebih Banyak" />
+</section>
+
+<style>
+.swiper {
+  &-slide {
+    @apply rounded-2xl;
+  }
+
+  &-pagination-bullet-active {
+  @apply bg-white bg-opacity-100;
+  }
+
+  &-button-next,
+  &-button-prev {
+    @apply text-white bg-black bg-opacity-25 border-white w-6 h-6 rounded-full;
+
+    &:after {
+      @apply text-xxs font-bold;
+    }
+  }
+}
+
+.tours {
+  @apply pt-32 pb-16 flex flex-col items-center justify-center px-6
+  sm:px-8
+  md:px-10
+  lg:px-12
+  xl:px-16
+  2xl:px-24;
+}
+
+.tours .cards {
+  @apply py-8 space-y-12 
+  
+  sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-8 sm:gap-y-12 
+
+  lg:space-y-0 lg:grid lg:grid-cols-4 lg:gap-x-8 lg:gap-y-12;
+}
+
+.tours .cards .item {
+  @apply relative;
+}
+
+.tours .cards .item .cta {
+  @apply absolute inset-0 w-full h-full;
+}
+
+.tours .cards .item .image {
+  @apply relative;
+}
+
+.tours .cards .item .image .photo {
+  @apply rounded-2xl;
+}
+
+.tours .cards .item .image .wrapper .tour-photo {
+  @apply block;
+}
+
+.tours .cards .item .image .wrapper .tour-photo {
+  @apply rounded-2xl;
+}
+
+.tours .cards .item .tag {
+  @apply flex items-center justify-between absolute z-30 top-0 left-0 w-full p-4;
+}
+
+.tours .cards .item .tag .content-text {
+  @apply text-xxs font-bold border-[1.5px] border-slate-50 text-slate-50 px-2 py-1 bg-slate-800 bg-opacity-30 rounded-xl;
+}
+
+.tours .cards .item .image .slider {
+  @apply flex items-center space-x-1 absolute bottom-4 left-1/2 -translate-x-1/2 z-50;
+}
+
+.tours .cards .item .image .slider .icon-slider {
+  @apply w-[6px] h-[6px] bg-white bg-opacity-50 rounded-full cursor-pointer;
+}
+
+.tours .cards .item .image .slider .icon-slider.active {
+  @apply bg-opacity-100;
+}
+
+.tours .cards .item .image .caret {
+  @apply w-full px-2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-between;
+}
+
+.tours .cards .item .image .caret .icon {
+  @apply w-8 h-8 hidden md:block;
+}
+
+.tours .cards .item .card-text .title-location {
+  @apply border-b border-slate-200 py-4;
+}
+
+.tours .cards .item .card-text .title-location .title {
+  @apply pb-4 font-bold text-lg tracking-wide;
+}
+
+.tours .cards .item .card-text .title-location .location {
+  @apply text-slate-500;
+}
+
+.tours .cards .item .card-text .title-location .location .tag-location {
+  @apply text-xxs font-bold uppercase;
+}
+
+.tours .cards .item .card-text .title-location .location .list {
+  @apply text-sm;
+}
+
+.tours .cards .item .card-text .price-day {
+  @apply py-4 flex items-center justify-between;
+}
+
+.tours .cards .item .card-text .price-day .price {
+  @apply text-sm;
+}
+
+.tours .cards .item .card-text .price-day .price .nominal {
+  @apply font-bold text-base;
+}
+
+.tours .cards .item .card-text .price-day .price .people {
+  @apply text-slate-500;
+}
+
+.tours .cards .item .card-text .price-day .day {
+  @apply text-sm text-slate-500;
+}
+
+</style>

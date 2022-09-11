@@ -1,0 +1,107 @@
+<header class="header">
+  <!-- Navbar -->
+  <nav class="header-navbar navbar">
+
+    <!-- Menu -->
+    <ul class="navbar-menu">
+      <li class="navbar-menu-item">
+        <a class="navbar-menu-link" href="#">
+          Syarat
+        </a>
+      </li>
+      <li class="navbar-menu-item">
+        <a class="navbar-menu-link" href="#">
+          Tentang
+        </a>
+      </li>
+      <li class="navbar-menu-item">
+        <a href="/">
+          <img
+            class="navbar-logo-image"
+            src="./assets/icons/logo-sans.svg"
+            alt="logo-sans"
+          />
+        </a>
+      </li>
+      <li class="navbar-menu-item">
+        <a class="navbar-menu-link" href="#">
+          Jasa
+        </a>
+      </li>
+      <li class="navbar-menu-item">
+        <a class="navbar-menu-link" href="#">
+          Keuntungan
+        </a>
+      </li>
+
+      
+    </ul>
+
+    <ul class="navbar-menu-mobile">
+      <li class="navbar-logo">
+        <a href="/">
+          <img
+            class="navbar-logo-image"
+            src="./assets/icons/logo-sans.svg"
+            alt="logo-sans"
+          />
+        </a>
+      </li>
+      <li class="navbar-menu-icon">
+        <a class="navbar-menu-link" href="#">
+          <img class="navbar-menu-svg" src="./assets/icons/icons-menu.svg" alt="icon-menu">
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+.header {
+  @apply shadow-sm sticky inset-0 z-20 bg-slate-50/95 px-6 py-4
+  sm:px-8
+  md:px-10
+  lg:px-12
+  xl:px-16
+  2xl:px-24;
+}
+
+.navbar {
+  @apply w-full flex items-center justify-between md:justify-center;
+
+  &-logo {
+    @apply py-4;
+
+    &-image {
+      @apply w-auto h-9
+  
+
+      md:w-auto md:h-12;
+    }
+  }
+
+
+  &-menu {
+    @apply hidden md:flex items-center space-x-16;
+    
+    &-item {
+      @apply hidden md:block;
+    }
+
+    &-link {
+      @apply w-5 h-5  
+      
+      sm:w-6 sm:h-6;
+    }
+
+    &-svg {
+      @apply w-6 h-6
+    }
+
+    &-mobile {
+      @apply flex items-center justify-between md:hidden w-full;
+    }
+  }
+}
+
+</style>

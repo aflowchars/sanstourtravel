@@ -1,0 +1,93 @@
+<footer class="footer">
+  <div class="footer-logo">
+    <img
+      class="footer-logo-icons"
+      src="./assets/icons/logo-sans.svg"
+      alt="logo-sans"
+    />
+  </div>
+
+  <h3 class="footer-brand">Sans Tour & Travel</h3>
+
+  <ul class="footer-menu">
+    <li class="footer-menu-item"><a class="footer-menu-link" href="/syarat">Syarat</a></li>
+    <li class="footer-menu-item"><a class="footer-menu-link" href="/syarat">Tentang</a></li>
+    <li class="footer-menu-item"><a class="footer-menu-link" href="/syarat">Jasa</a></li>
+    <li class="footer-menu-item"><a class="footer-menu-link" href="/syarat">Keuntungan</a></li>
+  </ul>
+
+  <ul class="footer-social">
+    <li class="footer-social-item">
+      <a class="footer-social-link" href="/syarat">
+        <img
+          class="footer-social-icon"
+          src="./assets/icons/icons-facebook.svg"
+          alt="icons-facebook"
+        />
+      </a>
+    </li>
+    <li class="footer-social-item">
+      <a class="footer-social-link" href="/syarat">
+        <img
+          class="footer-social-icon"
+          src="./assets/icons/icons-instagram.svg"
+          alt="icons-instagram"
+        />
+      </a>
+    </li>
+    <li class="footer-social-item">
+      <a class="footer-social-link" href="/syarat">
+        <img
+          class="footer-social-icon"
+          src="./assets/icons/icons-twitter.svg"
+          alt="icons-twitter"
+        />
+      </a>
+    </li>
+  </ul>
+
+  <div class="footer-copyright">© 2022 Sans Travel & Tour</div>
+</footer>
+
+<style>
+.footer {
+  @apply pt-16 flex flex-col items-center;
+
+  &-logo-icons {
+    @apply 
+    h-16 w-auto
+      
+    sm:h-20;
+  }
+
+  &-brand {
+    @apply text-lg pt-2 pb-4 font-extrabold
+      
+    sm:text-xl;
+  }
+
+  &-menu {
+    @apply flex items-center space-x-6 text-sm text-slate-800
+      
+    sm:text-base sm:space-x-12
+    
+    lg:space-x-16;
+  }
+
+  &-social {
+    @apply pt-6 pb-8 flex items-center space-x-3
+      
+    sm:space-x-6;
+
+    &-icon {
+      @apply w-5 h-5
+        
+      sm:w-6 sm:h-6;
+    }
+  }
+
+  &-copyright {
+    @apply text-sm py-6 border-t border-slate-200 w-full text-center;
+  }
+}
+</style>

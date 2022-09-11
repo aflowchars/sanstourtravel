@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../parts/home/Hero.astro';
+import Tours from '../parts/home/Tours.astro';
+import Benefit from '../parts/home/Benefit.astro';
+import Socmed from '../parts/home/Socmed.astro';
+---
+<Layout title="Sans Tour & Travel">
+	<Hero />
+	<Tours />
+	<Benefit />
+	<Socmed />
+</Layout>
+
+
+<style>
+	.main {
+		@apply 
+			px-6 py-16 bg-slate-50 mx-auto min-h-screen
+			sm:px-8
+			md:px-10
+			lg:px-12
+			xl:px-16
+			2xl:px-20;
+		}
+</style>

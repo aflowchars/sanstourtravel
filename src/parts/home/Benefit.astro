@@ -1,0 +1,88 @@
+---
+import Heading from "../../components/Heading.astro";
+
+export const benefits = [
+  {
+    srcImage: './assets/icons/ill-3d-wallet.png',
+    altImage: 'ill-3d-wallet',
+    heading: 'Harga Murah dan Terjangkau',
+    desc: 'Dengan harga yang murah dan terjangkau kami akan memberikan',
+  },
+  {
+    srcImage: './assets/icons/ill-3d-thumb-up.png',
+    altImage: 'ill-3d-thumb-up',
+    heading: 'Guide Tour Berpengalaman',
+    desc: 'Dengan harga yang murah dan terjangkau kami akan memberikan',
+  },
+  {
+    srcImage: './assets/icons/ill-3d-fire.png',
+    altImage: 'ill-3d-fire',
+    heading: 'Banyak Diskon Tersedia',
+    desc: 'Dengan harga yang murah dan terjangkau kami akan memberikan',
+  },
+  {
+    srcImage: './assets/icons/ill-3d-notify-heart.png',
+    altImage: 'ill-3d-notify-heart',
+    heading: 'Gratis Makanan & Pelayanan',
+    desc: 'Dengan harga yang murah dan terjangkau kami akan memberikan',
+  },
+]
+---
+
+<section class="benefit">
+  <Heading main="Kenapa Kami" desc="Berbagai keunggulan kami"/>
+
+  <div class="list">
+    {benefits.map(item => (
+      <div class="item">
+        <div class="image">
+          <img
+            class="photo"
+            src={item.srcImage}
+            alt={item.altImage}
+          />
+        </div>
+        <div class="text">
+          <h5 class="head">{item.heading}</h5>
+          <p class="hidden sm:block text-center text-sm text-slate-600">
+            {item.desc}
+          </p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+.benefit {
+  @apply py-16 
+  px-6
+  sm:px-8
+  md:px-10
+  lg:px-12
+  xl:px-16
+  2xl:px-24;
+}
+
+.benefit .list {
+  @apply grid grid-cols-2 gap-x-2 gap-y-8 py-8
+  
+  sm:gap-x-8
+  
+  lg:grid-cols-4;
+}
+
+.benefit .list .item {
+  @apply flex flex-col items-center justify-center;
+}
+
+.benefit .list .item .image {
+  @apply p-4;
+}
+
+.benefit .list .item .text .head {
+  @apply text-center font-semibold pb-2
+  
+  sm:font-bold;
+}
+</style>
