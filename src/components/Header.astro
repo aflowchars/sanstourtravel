@@ -1,3 +1,20 @@
+---
+import Button from "./Button.astro";
+---
+<script type="module">
+  const navbarMobileShow = document.querySelector("#navbar-mobile-show");
+  const navbarMobileClose = document.querySelector("#navbar-mobile-close");
+  const navbarMobileHidden = document.querySelector(".navbar-mobile");
+  
+  navbarMobileShow.addEventListener("click", () => {
+    navbarMobileHidden.style.display = "block";
+  });
+  
+  navbarMobileClose.addEventListener("click", () => {
+    navbarMobileHidden.style.display = "none";
+});
+</script>
+
 <header class="header">
   <!-- Navbar -->
   <nav class="header-navbar navbar">
@@ -48,33 +65,73 @@
         </a>
       </li>
       <li class="navbar-menu-icon">
-        <a class="navbar-menu-link" href="#">
+        <a id="navbar-mobile-show" class="navbar-menu-link" href="#">
           <img class="navbar-menu-svg" src="./assets/icons/icons-menu.svg" alt="icon-menu">
         </a>
       </li>
     </ul>
+
+    <nav class="navbar-mobile">
+      <div class="navbar-mobile-brand">
+        <a href="/">
+          <img
+            class="navbar-logo-image"
+            src="./assets/icons/logo-sans.svg"
+            alt="logo-sans"
+          />
+        </a>
+        <a id="navbar-mobile-close" class="navbar-menu-link" href="#">
+          <img class="navbar-menu-svg" src="./assets/icons/icons-close.svg" alt="icon-close">
+        </a>
+      </div>
+
+      <ul class="navbar-mobile-show">
+        <li class="navbar-mobile-item">
+          <a href="#">Beranda</a>
+        </li>
+        <li class="navbar-mobile-item">
+          <a href="#">Syarat</a>
+        </li>
+        <li class="navbar-mobile-item">
+          <a href="#">Tentang</a>
+        </li>
+        <li class="navbar-mobile-item">
+          <a href="#">Jasa</a>
+        </li>
+        <li class="navbar-mobile-item">
+          <a href="#">Keuntungan</a>
+        </li>
+        <li class="navbar-mobile-item">
+          <Button btnText="Pesan Sekarang" btnType="noIcon" className="navbar-mobile-contact" />
+        </li>
+      </ul>
+    </nav>
   </nav>
 </header>
 
 <style>
 .header {
   @apply shadow-sm sticky inset-0 z-20 bg-slate-50/95 px-6 py-4
+
   sm:px-8
+  
   md:px-10
+  
   lg:px-12
+  
   xl:px-16
+  
   2xl:px-24;
 }
 
 .navbar {
-  @apply w-full flex items-center justify-between md:justify-center;
+  @apply w-full flex items-center justify-between md:justify-center relative;
 
   &-logo {
-    @apply py-4;
+    /* @apply py-4; */
 
     &-image {
       @apply w-auto h-9
-  
 
       md:w-auto md:h-12;
     }
@@ -100,6 +157,34 @@
 
     &-mobile {
       @apply flex items-center justify-between md:hidden w-full;
+    }
+  }
+
+  &-mobile {
+    @apply hidden fixed inset-0 bg-slate-50 w-screen h-screen lg:hidden;
+    
+    &-brand {
+      @apply top-0 left-0 fixed flex items-center justify-between w-full px-6 py-4
+      
+      sm:px-8
+
+      md:px-10;
+    }
+    
+    &-show {
+      @apply space-y-4 text-center w-full pt-32;
+    }
+
+    &-item {
+      @apply text-lg font-semibold text-slate-600 px-8;
+    }
+
+    &-contact {
+      @apply w-full mt-8;
+    }
+
+    &-hidden {
+      @apply hidden;
     }
   }
 }
